@@ -9,8 +9,9 @@ Sebuah *landing page* personal dan alternatif Linktree yang didesain secara khus
 - **Akses Cepat:** Tombol utama untuk mengunduh/melihat CV dan mengunjungi profil lengkap.
 
 ## 🛠️ Teknologi yang Digunakan
-- HTML5 / CSS3
-- [Tailwind CSS](https://tailwindcss.com/) (untuk penataan gaya dan efek *backdrop-blur*)
+- HTML5 / CSS3 (single-file `index.html`)
+- [Tailwind CSS](https://tailwindcss.com/) via CDN
+- Dark / Light theme toggle dengan persistensi `localStorage`
 
 ## 👤 Tentang Saya
 **L. Moh. Banu Pebrianto (Kapten Nemo | @nemospiritgeek)**
