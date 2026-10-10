@@ -72,6 +72,31 @@
     html.light .glow-red { background: radial-gradient(circle, rgba(239,68,68,0.12) 0%, transparent 70%); }
     html.light .glow-red-2 { background: radial-gradient(circle, rgba(220,38,38,0.08) 0%, transparent 70%); }
 
+    /* ===== Light mode text overrides ===== */
+    html.light .text-white { color: #18181b !important; }
+    html.light .text-white\/90 { color: rgba(24,24,27,0.9) !important; }
+    html.light .text-zinc-400 { color: #71717a !important; }
+    html.light .text-zinc-500 { color: #636366 !important; }
+    html.light .text-zinc-600 { color: #71717a !important; }
+    html.light .hover\:text-white:hover { color: #18181b !important; }
+
+    /* Portfolio hover overlays: keep text white on dark gradient even in light mode */
+    html.light .portfolio-overlay .text-white { color: #ffffff !important; }
+
+    /* CV button in nav keeps white text on red bg in both themes */
+    html.light .bg-red-600 .text-white,
+    html.light .bg-red-600\/hover\:bg-red-700 .text-white,
+    html.light a.bg-red-600 .text-white { color: #ffffff !important; }
+
+    /* ===== Light mode border overrides ===== */
+    html.light .border-white\/5 { border-color: rgba(0,0,0,0.06) !important; }
+    html.light .border-white\/10 { border-color: rgba(0,0,0,0.08) !important; }
+    html.light .border-white\/20 { border-color: rgba(0,0,0,0.12) !important; }
+
+    /* ===== Light mode background overrides ===== */
+    html.light .bg-white\/5 { background: rgba(0,0,0,0.05) !important; }
+    html.light .hover\:bg-white\/10:hover { background: rgba(0,0,0,0.08) !important; }
+
     /* ===== Animations ===== */
     @keyframes fadeInUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
     .reveal { opacity: 0; }
@@ -553,7 +578,7 @@
           <div class="relative overflow-hidden">
             <img src="https://images.pexels.com/photos/6424583/pexels-photo-6424583.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
               alt="Tech Blog" class="w-full h-56 object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
               <div>
                 <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">Tech Writing</p>
                 <p class="text-white text-sm mt-1">In-depth articles on web infrastructure, AI, and digital lifestyle.</p>
@@ -580,7 +605,7 @@
           <div class="relative overflow-hidden">
             <img src="https://images.pexels.com/photos/18545023/pexels-photo-18545023.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
               alt="AI Research" class="w-full h-56 object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
               <div>
                 <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">AI &amp; ML</p>
                 <p class="text-white text-sm mt-1">Exploring machine learning models and AI-driven solutions.</p>
@@ -607,7 +632,7 @@
           <div class="relative overflow-hidden">
             <img src="https://images.pexels.com/photos/5380603/pexels-photo-5380603.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
               alt="IT Security" class="w-full h-56 object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
               <div>
                 <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">IT Security</p>
                 <p class="text-white text-sm mt-1">Network security, infrastructure hardening, and system audits.</p>
@@ -634,7 +659,7 @@
           <div class="relative overflow-hidden">
             <img src="https://images.pexels.com/photos/6476785/pexels-photo-6476785.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
               alt="Digital Marketing" class="w-full h-56 object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
               <div>
                 <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">Digital Marketing</p>
                 <p class="text-white text-sm mt-1">Content strategy, SEO, and brand growth campaigns.</p>
