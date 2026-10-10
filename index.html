@@ -101,10 +101,10 @@
     .reveal.in-view { animation: fadeInUp .7s ease-out both; }
 
     @keyframes pulseRing {
-  0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); }
-  50% { box-shadow: 0 0 0 20px rgba(239,68,68,0); } /* Ubah 10px menjadi 30px di sini */
-}
-.avatar-ring { animation: pulseRing 1.5s ease-in-out infinite; }
+      0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); }
+      50% { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
+    }
+    .avatar-ring { animation: pulseRing 3s ease-in-out infinite; }
 
     @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
     .float { animation: float 6s ease-in-out infinite; }
@@ -179,8 +179,8 @@
   <div class="glow-red fixed bottom-[-10%] left-[20%] w-[400px] h-[400px] blur-3xl rounded-full pointer-events-none z-0"></div>
 
   <!-- ===== Navigation ===== -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 sm:px-6">
-    <div class="glass w-full max-w-6xl mx-auto mt-3 rounded-full px-5 sm:px-8 py-3.5 flex items-center justify-between">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="glass mx-auto max-w-6xl mx-3 sm:mx-auto mt-3 rounded-2xl px-5 sm:px-8 py-3.5 flex items-center justify-between">
       <!-- Logo -->
       <a href="#hero" class="flex items-center gap-2 font-bold text-lg text-white dark:text-white">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="currentColor">
@@ -218,7 +218,7 @@
 
         <!-- CTA in nav -->
         <a href="https://mataram.my.canva.site/procv-kapten-nemo" target="_blank" rel="noopener noreferrer"
-          class="hidden sm:flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-300 hover:scale-105">
+          class="hidden sm:flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
           </svg>
@@ -235,8 +235,8 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="lg:hidden mx-6 sm:mx-10 max-w-6xl xl:mx-auto mt-2 overflow-hidden">
-      <div class="glass rounded-2xl flex flex-col py-3 px-5 gap-1 text-sm font-medium text-zinc-400">
+    <div id="mobileMenu" class="lg:hidden glass mx-3 mt-2 rounded-2xl overflow-hidden">
+      <div class="flex flex-col py-3 px-5 gap-1 text-sm font-medium text-zinc-400">
         <a href="#hero" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">Home</a>
         <a href="#about" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">About</a>
         <a href="#services" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">Services</a>
@@ -257,6 +257,7 @@
             alt="L. Moh. Banu Pebrianto"
             class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-white/20" loading="eager" />
         </div>
+        <div class="absolute inset-0 rounded-full border border-red-500/30 pointer-events-none"></div>
       </div>
 
       <!-- Subtitle pill -->
@@ -288,23 +289,22 @@
         Bridging technology and consciousness — crafting innovative, ethical, and impactful digital solutions from Lombok, Indonesia.
       </p>
 
-<!-- CTA buttons -->
-      <div class="reveal mt-8 flex flex-row items-center justify-center gap-4 sm:gap-6 mx-auto px-4 sm:px-0">
+      <!-- CTA buttons -->
+      <div class="reveal mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md sm:max-w-none mx-auto">
         <a href="https://mataram.my.canva.site/procv-kapten-nemo" target="_blank" rel="noopener noreferrer"
-          class="w-auto flex items-center justify-center gap-2 sm:gap-2.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wide py-3.5 px-2 sm:px-8 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm uppercase tracking-wide py-3.5 px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/>
           </svg>
-          <span class="whitespace-nowrap">View CV</span>
+          View CV
         </a>
-        
         <a href="https://nemospiritgeek.taplink.id/" target="_blank" rel="noopener noreferrer"
-          class="w-auto glass flex items-center justify-center gap-2 sm:gap-2.5 text-white font-semibold text-xs sm:text-sm uppercase tracking-wide py-3.5 px-5 sm:px-8 rounded-full transition-all duration-300 hover:scale-105 hover:bg-white/10 active:scale-95 text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          class="w-full sm:w-auto glass flex items-center justify-center gap-2.5 text-white font-semibold text-sm uppercase tracking-wide py-3.5 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white/10 active:scale-95">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          <span class="whitespace-nowrap">Bio Link</span>
+          Bio Link
         </a>
       </div>
 
@@ -708,7 +708,7 @@
       <!-- Expand all -->
       <div class="reveal text-center mt-10">
         <a href="https://github.com/8XPLOIT?tab=repositories" target="_blank" rel="noopener noreferrer"
-          class="glass inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-white/10 transition-all duration-300 hover:scale-105">
+          class="glass inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105">
           Browse All Projects
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
