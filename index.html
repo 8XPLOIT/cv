@@ -101,10 +101,10 @@
     .reveal.in-view { animation: fadeInUp .7s ease-out both; }
 
     @keyframes pulseRing {
-      0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); }
-      50% { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
-    }
-    .avatar-ring { animation: pulseRing 3s ease-in-out infinite; }
+  0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); }
+  50% { box-shadow: 0 0 0 30px rgba(239,68,68,0); } /* Ubah 10px menjadi 30px di sini */
+}
+.avatar-ring { animation: pulseRing 3s ease-in-out infinite; }
 
     @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
     .float { animation: float 6s ease-in-out infinite; }
