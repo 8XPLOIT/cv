@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L. Moh. Banu Pebrianto — Kapten Nemo | Tech Blogger & Digital Creator</title>
+  <meta name="description" content="Personal portfolio of L. Moh. Banu Pebrianto (Kapten Nemo) — Tech Blogger, Digital Creator, IT Security & AI/ML enthusiast." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ===== Base ===== */
+    html { scroll-behavior: smooth; }
+    html.dark body {
+      background: radial-gradient(ellipse at top, #0a0a0a 0%, #000000 70%);
+      color: #fff;
+    }
+    html.light body {
+      background: radial-gradient(ellipse at top, #f4f4f5 0%, #e4e4e7 70%);
+      color: #18181b;
+    }
+    * { transition: background-color .4s ease, border-color .4s ease, color .3s ease; }
+    ::-webkit-scrollbar { width: 6px; }
+    html.dark ::-webkit-scrollbar-track { background: #000; }
+    html.dark ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 3px; }
+    html.light ::-webkit-scrollbar-track { background: #e4e4e7; }
+    html.light ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 3px; }
+
+    /* ===== Glass ===== */
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    html.light .glass {
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .glass-pill {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #d4d4d8;
+    }
+    html.light .glass-pill {
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.08);
+      color: #3f3f46;
+    }
+    .text-muted { color: #a1a1aa; }
+    html.light .text-muted { color: #52525b; }
+
+    /* ===== Background glows ===== */
+    .glow-red {
+      background: radial-gradient(circle, rgba(239,68,68,0.18) 0%, transparent 70%);
+    }
+    .glow-red-2 {
+      background: radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 70%);
+    }
+    html.light .glow-red { background: radial-gradient(circle, rgba(239,68,68,0.12) 0%, transparent 70%); }
+    html.light .glow-red-2 { background: radial-gradient(circle, rgba(220,38,38,0.08) 0%, transparent 70%); }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .reveal { opacity: 0; }
+    .reveal.in-view { animation: fadeInUp .7s ease-out both; }
+
+    @keyframes pulseRing {
+      0%,100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); }
+      50% { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
+    }
+    .avatar-ring { animation: pulseRing 3s ease-in-out infinite; }
+
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-12px); } }
+    .float { animation: float 6s ease-in-out infinite; }
+
+    @keyframes spinSlow { from { transform:rotate(0); } to { transform:rotate(360deg); } }
+    .spin-slow { animation: spinSlow 40s linear infinite; }
+
+    /* ===== Nav active link ===== */
+    .nav-link.active { color: #ef4444; }
+    .nav-link.active::after { width: 100%; }
+    .nav-link::after {
+      content: ''; display: block; height: 2px; width: 0; background: #ef4444;
+      transition: width .3s ease; margin-top: 2px;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ===== Skill bar ===== */
+    .skill-bar-fill {
+      background: linear-gradient(90deg, #dc2626, #ef4444);
+      border-radius: 9999px;
+      height: 100%;
+      width: 0;
+      transition: width 1.5s ease-out;
+    }
+
+    /* ===== Portfolio hover ===== */
+    .portfolio-item img { transition: transform .6s ease, filter .4s ease; }
+    .portfolio-item:hover img { transform: scale(1.08); filter: brightness(1.1); }
+
+    /* ===== Mobile menu ===== */
+    #mobileMenu { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    #mobileMenu.open { max-height: 500px; }
+  </style>
+  <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+</head>
+
+<body class="font-sans antialiased min-h-screen overflow-x-hidden">
+
+  <!-- ===== Background Glows ===== -->
+  <div class="glow-red fixed top-[-8%] left-[-12%] w-[600px] h-[600px] blur-3xl rounded-full pointer-events-none z-0"></div>
+  <div class="glow-red-2 fixed top-[40%] right-[-15%] w-[500px] h-[500px] blur-3xl rounded-full pointer-events-none z-0"></div>
+  <div class="glow-red fixed bottom-[-10%] left-[20%] w-[400px] h-[400px] blur-3xl rounded-full pointer-events-none z-0"></div>
+
+  <!-- ===== Navigation ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="glass mx-auto max-w-6xl mx-3 sm:mx-auto mt-3 rounded-2xl px-5 sm:px-8 py-3.5 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2 font-bold text-lg text-white dark:text-white">
+        <span class="text-red-500 text-xl">◆</span>
+        <span class="hidden sm:inline">Kapten Nemo</span>
+        <span class="sm:hidden">KN</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-7 text-sm font-medium text-zinc-400">
+        <a href="#hero" class="nav-link hover:text-white transition-colors">Home</a>
+        <a href="#about" class="nav-link hover:text-white transition-colors">About</a>
+        <a href="#services" class="nav-link hover:text-white transition-colors">Services</a>
+        <a href="#skills" class="nav-link hover:text-white transition-colors">Skills</a>
+        <a href="#portfolio" class="nav-link hover:text-white transition-colors">Portfolio</a>
+        <a href="#blog" class="nav-link hover:text-white transition-colors">Blog</a>
+        <a href="#contact" class="nav-link hover:text-white transition-colors">Contact</a>
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" aria-label="Toggle theme"
+          class="glass-pill rounded-full p-2 hover:bg-white/10 transition-all duration-300 hover:scale-105">
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- CTA in nav -->
+        <a href="https://mataram.my.canva.site/procv-kapten-nemo" target="_blank" rel="noopener noreferrer"
+          class="hidden sm:flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+          </svg>
+          View CV
+        </a>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" aria-label="Open menu" class="lg:hidden glass-pill rounded-lg p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="lg:hidden glass mx-3 mt-2 rounded-2xl overflow-hidden">
+      <div class="flex flex-col py-3 px-5 gap-1 text-sm font-medium text-zinc-400">
+        <a href="#hero" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">Home</a>
+        <a href="#about" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">About</a>
+        <a href="#services" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">Services</a>
+        <a href="#skills" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">Skills</a>
+        <a href="#portfolio" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">Portfolio</a>
+        <a href="#blog" class="mobile-link py-2.5 hover:text-red-500 transition-colors border-b border-white/5">Blog</a>
+        <a href="#contact" class="mobile-link py-2.5 hover:text-red-500 transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 z-10">
+    <div class="max-w-4xl w-full text-center">
+      <!-- Avatar -->
+      <div class="relative inline-block mb-6 reveal">
+        <div class="avatar-ring rounded-full inline-block">
+          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=240&h=240&fit=crop&crop=face"
+            alt="L. Moh. Banu Pebrianto"
+            class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-white/20" loading="eager" />
+        </div>
+        <div class="absolute inset-0 rounded-full border border-red-500/30 pointer-events-none"></div>
+      </div>
+
+      <!-- Subtitle pill -->
+      <div class="reveal flex justify-center mb-4">
+        <span class="glass-pill text-sm px-4 py-1.5 rounded-full inline-flex items-center gap-2">
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          Available for Collaboration
+        </span>
+      </div>
+
+      <!-- Name -->
+      <h1 class="reveal text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+        L. Moh. Banu<br class="sm:hidden" />
+        <span class="text-red-500">Pebrianto</span>
+      </h1>
+
+      <!-- Alias -->
+      <p class="reveal mt-3 text-base font-medium text-red-500/90 tracking-wide">
+        @nemospiritgeek · Kapten Nemo
+      </p>
+
+      <!-- Tagline -->
+      <p class="reveal mt-4 text-xl sm:text-2xl font-semibold text-white/90">
+        Tech Blogger &amp; Digital Creator
+      </p>
+
+      <!-- Intro -->
+      <p class="reveal text-muted mt-5 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+        Bridging technology and consciousness — crafting innovative, ethical, and impactful digital solutions from Lombok, Indonesia.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="reveal mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md sm:max-w-none mx-auto">
+        <a href="https://mataram.my.canva.site/procv-kapten-nemo" target="_blank" rel="noopener noreferrer"
+          class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm uppercase tracking-wide py-3.5 px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/>
+          </svg>
+          View CV
+        </a>
+        <a href="https://nemospiritgeek.taplink.id/" target="_blank" rel="noopener noreferrer"
+          class="w-full sm:w-auto glass flex items-center justify-center gap-2.5 text-white font-semibold text-sm uppercase tracking-wide py-3.5 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white/10 active:scale-95">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          Bio Link
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="reveal mt-12 flex justify-center">
+        <a href="#about" class="text-zinc-500 hover:text-red-500 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="relative z-10 py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <!-- Section header -->
+      <div class="reveal text-center mb-12">
+        <span class="text-red-500 text-sm font-semibold uppercase tracking-widest">About Me</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Bridging Tech &amp; Consciousness</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <!-- Image -->
+        <div class="reveal relative">
+          <div class="relative rounded-2xl overflow-hidden glass p-2">
+            <img src="https://images.pexels.com/photos/5473960/pexels-photo-5473960.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="Tech workspace" class="rounded-xl w-full h-72 object-cover" loading="lazy" />
+          </div>
+          <!-- Floating badge -->
+          <div class="float absolute -bottom-5 -right-3 glass rounded-2xl px-5 py-3 text-center">
+            <p class="text-3xl font-bold text-red-500">8+</p>
+            <p class="text-xs text-muted">Years Writing</p>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="reveal">
+          <h3 class="text-xl font-bold text-white mb-3">L. Moh. Banu Pebrianto</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">
+            Bachelor of Science in Computer Science from STMIK Lombok Praya. Experienced in IT Security, Graphic Design, Digital Research, Networking, Hardware-Software, and Machine Learning, as well as actively involved in Spiritual Exploration and Consultation, Divination, Ancient Reading, Healing, and Metaphysics.
+          </p>
+          <p class="text-muted text-sm leading-relaxed mb-6">
+            Combining technological discipline and consciousness to create innovative, ethical, and impactful mindfulness solutions for the world. Writing about technology, web infrastructure, AI, and digital lifestyle since 2018.
+          </p>
+
+          <!-- Info grid -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div>
+              <p class="text-xs text-zinc-500 uppercase tracking-wide">Location</p>
+              <p class="text-sm text-white font-medium mt-0.5">Lombok, Indonesia</p>
+            </div>
+            <div>
+              <p class="text-xs text-zinc-500 uppercase tracking-wide">Website</p>
+              <p class="text-sm text-white font-medium mt-0.5">nemospiritgeek.my.id</p>
+            </div>
+            <div>
+              <p class="text-xs text-zinc-500 uppercase tracking-wide">Education</p>
+              <p class="text-sm text-white font-medium mt-0.5">B.Sc. Computer Science</p>
+            </div>
+            <div>
+              <p class="text-xs text-zinc-500 uppercase tracking-wide">Experience</p>
+              <p class="text-sm text-white font-medium mt-0.5">8+ Years</p>
+            </div>
+          </div>
+
+          <!-- Focus pills -->
+          <div class="flex flex-wrap gap-2">
+            <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Adobe Photoshop</span>
+            <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Software Maintenance</span>
+            <span class="glass-pill text-xs px-3 py-1.5 rounded-full">AI Machine Learning</span>
+            <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Digital Marketing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="reveal grid grid-cols-2 sm:grid-cols-4 gap-4 mt-14">
+        <div class="glass rounded-2xl p-5 text-center">
+          <p class="text-3xl font-bold text-red-500">100+</p>
+          <p class="text-xs text-muted mt-1">Articles Published</p>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center">
+          <p class="text-3xl font-bold text-red-500">8+</p>
+          <p class="text-xs text-muted mt-1">Years Experience</p>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center">
+          <p class="text-3xl font-bold text-red-500">15+</p>
+          <p class="text-xs text-muted mt-1">Focus Areas</p>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center">
+          <p class="text-3xl font-bold text-red-500">∞</p>
+          <p class="text-xs text-muted mt-1">Curiosity Level</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="relative z-10 py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-12">
+        <span class="text-red-500 text-sm font-semibold uppercase tracking-widest">My Expertise</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">What I Do</h2>
+        <p class="text-muted mt-3 text-sm max-w-xl mx-auto">A blend of technical depth and creative vision across multiple disciplines.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Card 1 -->
+        <div class="reveal glass rounded-2xl p-6 hover:border-red-500/30 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-600/15 flex items-center justify-center mb-4 group-hover:bg-red-600/25 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">IT Security &amp; Networking</h3>
+          <p class="text-muted text-sm leading-relaxed">Securing digital infrastructure, managing networks, and ensuring system integrity across hardware and software layers.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="reveal glass rounded-2xl p-6 hover:border-red-500/30 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-600/15 flex items-center justify-center mb-4 group-hover:bg-red-600/25 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">AI &amp; Machine Learning</h3>
+          <p class="text-muted text-sm leading-relaxed">Exploring the frontier of artificial intelligence, building ML models, and applying data-driven insights to real-world problems.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="reveal glass rounded-2xl p-6 hover:border-red-500/30 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-600/15 flex items-center justify-center mb-4 group-hover:bg-red-600/25 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Graphic Design</h3>
+          <p class="text-muted text-sm leading-relaxed">Creating visually compelling designs with Adobe Photoshop — from digital content to brand assets and creative direction.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="reveal glass rounded-2xl p-6 hover:border-red-500/30 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-600/15 flex items-center justify-center mb-4 group-hover:bg-red-600/25 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Tech Blogging</h3>
+          <p class="text-muted text-sm leading-relaxed">Writing in-depth articles on technology, web infrastructure, AI, and digital lifestyle — published regularly since 2018.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="reveal glass rounded-2xl p-6 hover:border-red-500/30 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-600/15 flex items-center justify-center mb-4 group-hover:bg-red-600/25 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Digital Marketing</h3>
+          <p class="text-muted text-sm leading-relaxed">Strategic content marketing, SEO optimization, and digital presence management to grow audiences and brand visibility.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="reveal glass rounded-2xl p-6 hover:border-red-500/30 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-xl bg-red-600/15 flex items-center justify-center mb-4 group-hover:bg-red-600/25 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Software Maintenance</h3>
+          <p class="text-muted text-sm leading-relaxed">Keeping systems running smoothly — diagnostics, updates, optimization, and proactive maintenance for hardware and software.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="relative z-10 py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-12">
+        <span class="text-red-500 text-sm font-semibold uppercase tracking-widest">My Skills</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Tools &amp; Technologies</h2>
+        <p class="text-muted mt-3 text-sm max-w-xl mx-auto">Proficiency levels across the key tools and disciplines I work with daily.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-x-10 gap-y-6">
+        <!-- Skill items -->
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">Adobe Photoshop</span>
+            <span class="text-sm text-red-500 font-semibold">92%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="92%"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">IT Security &amp; Networking</span>
+            <span class="text-sm text-red-500 font-semibold">88%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="88%"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">AI &amp; Machine Learning</span>
+            <span class="text-sm text-red-500 font-semibold">85%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="85%"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">Software Maintenance</span>
+            <span class="text-sm text-red-500 font-semibold">90%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="90%"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">Digital Marketing</span>
+            <span class="text-sm text-red-500 font-semibold">82%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="82%"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">Tech Writing &amp; Blogging</span>
+            <span class="text-sm text-red-500 font-semibold">95%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="95%"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">Hardware &amp; Software</span>
+            <span class="text-sm text-red-500 font-semibold">87%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="87%"></div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium text-white">Digital Research</span>
+            <span class="text-sm text-red-500 font-semibold">89%</span>
+          </div>
+          <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+            <div class="skill-bar-fill" data-width="89%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extra skill pills -->
+      <div class="reveal mt-10 flex flex-wrap justify-center gap-2.5">
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">HTML5</span>
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">CSS3</span>
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Python</span>
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Linux</span>
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">SEO</span>
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Content Strategy</span>
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Metaphysics</span>
+        <span class="glass-pill text-xs px-3 py-1.5 rounded-full">Healing &amp; Consultation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section id="portfolio" class="relative z-10 py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-12">
+        <span class="text-red-500 text-sm font-semibold uppercase tracking-widest">My Work</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Featured Projects</h2>
+        <p class="text-muted mt-3 text-sm max-w-xl mx-auto">A selection of projects across tech writing, design, and AI exploration.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <!-- Portfolio 1 -->
+        <div class="reveal portfolio-item glass rounded-2xl overflow-hidden group cursor-pointer">
+          <div class="relative overflow-hidden">
+            <img src="https://images.pexels.com/photos/6424583/pexels-photo-6424583.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="Tech Blog" class="w-full h-56 object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">Tech Writing</p>
+                <p class="text-white text-sm mt-1">In-depth articles on web infrastructure, AI, and digital lifestyle.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-white">nemospiritgeek.my.id</h3>
+                <p class="text-muted text-xs mt-0.5">Tech Blog &amp; Digital Hub</p>
+              </div>
+              <a href="https://nemospiritgeek.my.id" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio 2 -->
+        <div class="reveal portfolio-item glass rounded-2xl overflow-hidden group cursor-pointer">
+          <div class="relative overflow-hidden">
+            <img src="https://images.pexels.com/photos/18545023/pexels-photo-18545023.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="AI Research" class="w-full h-56 object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">AI &amp; ML</p>
+                <p class="text-white text-sm mt-1">Exploring machine learning models and AI-driven solutions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-white">AI Research Projects</h3>
+                <p class="text-muted text-xs mt-0.5">Machine Learning &amp; Data Science</p>
+              </div>
+              <span class="text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio 3 -->
+        <div class="reveal portfolio-item glass rounded-2xl overflow-hidden group cursor-pointer">
+          <div class="relative overflow-hidden">
+            <img src="https://images.pexels.com/photos/5380603/pexels-photo-5380603.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="IT Security" class="w-full h-56 object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">IT Security</p>
+                <p class="text-white text-sm mt-1">Network security, infrastructure hardening, and system audits.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-white">Security &amp; Infrastructure</h3>
+                <p class="text-muted text-xs mt-0.5">Networking &amp; Hardware</p>
+              </div>
+              <span class="text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio 4 -->
+        <div class="reveal portfolio-item glass rounded-2xl overflow-hidden group cursor-pointer">
+          <div class="relative overflow-hidden">
+            <img src="https://images.pexels.com/photos/6476785/pexels-photo-6476785.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="Digital Marketing" class="w-full h-56 object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p class="text-red-500 text-xs font-semibold uppercase tracking-wide">Digital Marketing</p>
+                <p class="text-white text-sm mt-1">Content strategy, SEO, and brand growth campaigns.</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-lg font-bold text-white">Digital Brand Growth</h3>
+                <p class="text-muted text-xs mt-0.5">Marketing &amp; Content Strategy</p>
+              </div>
+              <span class="text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ===== -->
+  <section id="blog" class="relative z-10 py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="reveal text-center mb-12">
+        <span class="text-red-500 text-sm font-semibold uppercase tracking-widest">Latest Articles</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">From the Blog</h2>
+        <p class="text-muted mt-3 text-sm max-w-xl mx-auto">Thoughts on technology, AI, web infrastructure, and the digital lifestyle.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Blog 1 -->
+        <article class="reveal glass rounded-2xl overflow-hidden group">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/30530407/pexels-photo-30530407.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="AI article" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-semibold text-red-500 bg-red-600/10 px-2.5 py-1 rounded-full">AI &amp; ML</span>
+              <span class="text-xs text-zinc-500">2026</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2 group-hover:text-red-500 transition-colors">The Future of AI: Mindful Machine Learning</h3>
+            <p class="text-muted text-xs leading-relaxed">Exploring how ethical AI and consciousness-driven design can shape the next generation of technology.</p>
+            <a href="https://nemospiritgeek.my.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-red-500 font-semibold mt-4 hover:gap-2 transition-all">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog 2 -->
+        <article class="reveal glass rounded-2xl overflow-hidden group">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/5483248/pexels-photo-5483248.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="Security article" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-semibold text-red-500 bg-red-600/10 px-2.5 py-1 rounded-full">Security</span>
+              <span class="text-xs text-zinc-500">2026</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Securing Your Digital Infrastructure</h3>
+            <p class="text-muted text-xs leading-relaxed">A practical guide to network hardening, threat assessment, and building resilient systems.</p>
+            <a href="https://nemospiritgeek.my.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-red-500 font-semibold mt-4 hover:gap-2 transition-all">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog 3 -->
+        <article class="reveal glass rounded-2xl overflow-hidden group">
+          <div class="overflow-hidden">
+            <img src="https://images.pexels.com/photos/6424584/pexels-photo-6424584.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              alt="Web dev article" class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-semibold text-red-500 bg-red-600/10 px-2.5 py-1 rounded-full">Web</span>
+              <span class="text-xs text-zinc-500">2026</span>
+            </div>
+            <h3 class="text-base font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Building the Modern Web Stack</h3>
+            <p class="text-muted text-xs leading-relaxed">From Vite to Supabase — a deep dive into the tools powering today's fastest web apps.</p>
+            <a href="https://nemospiritgeek.my.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-sm text-red-500 font-semibold mt-4 hover:gap-2 transition-all">
+              Read More
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- View all -->
+      <div class="reveal text-center mt-10">
+        <a href="https://nemospiritgeek.my.id" target="_blank" rel="noopener noreferrer"
+          class="glass inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105">
+          View All Articles
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="relative z-10 py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="reveal text-center mb-12">
+        <span class="text-red-500 text-sm font-semibold uppercase tracking-widest">Get In Touch</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Let's Work Together</h2>
+        <p class="text-muted mt-3 text-sm max-w-xl mx-auto">Have a project in mind or want to collaborate? I'm always open to discussing new ideas.</p>
+      </div>
+
+      <div class="reveal glass rounded-3xl p-8 sm:p-10">
+        <!-- Contact cards -->
+        <div class="grid sm:grid-cols-3 gap-4 mb-8">
+          <a href="mailto:hello@nemospiritgeek.my.id" class="glass-pill rounded-2xl p-5 text-center hover:border-red-500/30 transition-all duration-300 group">
+            <div class="w-10 h-10 rounded-xl bg-red-600/15 flex items-center justify-center mx-auto mb-3 group-hover:bg-red-600/25 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <p class="text-xs text-zinc-500 uppercase tracking-wide">Email</p>
+            <p class="text-sm text-white font-medium mt-1 break-all">nemospiritgeek</p>
+          </a>
+
+          <a href="https://www.linkedin.com/in/nemospiritgeek" target="_blank" rel="noopener noreferrer" class="glass-pill rounded-2xl p-5 text-center hover:border-red-500/30 transition-all duration-300 group">
+            <div class="w-10 h-10 rounded-xl bg-red-600/15 flex items-center justify-center mx-auto mb-3 group-hover:bg-red-600/25 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.25c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 12.25h-3v-5.5c0-1.5-.5-2.5-1.5-2.5s-1.5 1-1.5 2.5v5.5h-3v-11h3v1.5c.5-.75 1.5-1.5 3-1.5 2 0 3.5 1.25 3.5 4.5v6.5z"/>
+              </svg>
+            </div>
+            <p class="text-xs text-zinc-500 uppercase tracking-wide">LinkedIn</p>
+            <p class="text-sm text-white font-medium mt-1">Connect</p>
+          </a>
+
+          <a href="https://nemospiritgeek.my.id" target="_blank" rel="noopener noreferrer" class="glass-pill rounded-2xl p-5 text-center hover:border-red-500/30 transition-all duration-300 group">
+            <div class="w-10 h-10 rounded-xl bg-red-600/15 flex items-center justify-center mx-auto mb-3 group-hover:bg-red-600/25 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <p class="text-xs text-zinc-500 uppercase tracking-wide">Website</p>
+            <p class="text-sm text-white font-medium mt-1">nemospiritgeek.my.id</p>
+          </a>
+        </div>
+
+        <!-- Quick CTA -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="https://mataram.my.canva.site/procv-kapten-nemo" target="_blank" rel="noopener noreferrer"
+            class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm uppercase tracking-wide py-3.5 px-8 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+            </svg>
+            View CV
+          </a>
+          <a href="https://nemospiritgeek.taplink.id/" target="_blank" rel="noopener noreferrer"
+            class="w-full sm:w-auto glass flex items-center justify-center gap-2.5 text-white font-semibold text-sm uppercase tracking-wide py-3.5 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white/10 active:scale-95">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            Bio Link
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="relative z-10 py-10 px-4 border-t border-white/5">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 font-bold text-lg text-white">
+          <span class="text-red-500 text-xl">◆</span>
+          Kapten Nemo
+        </div>
+
+        <!-- Social -->
+        <div class="flex items-center gap-5">
+          <a href="mailto:hello@nemospiritgeek.my.id" aria-label="Email" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/nemospiritgeek" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.25c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 12.25h-3v-5.5c0-1.5-.5-2.5-1.5-2.5s-1.5 1-1.5 2.5v5.5h-3v-11h3v1.5c.5-.75 1.5-1.5 3-1.5 2 0 3.5 1.25 3.5 4.5v6.5z"/>
+            </svg>
+          </a>
+          <a href="https://nemospiritgeek.my.id" target="_blank" rel="noopener noreferrer" aria-label="Website" class="text-zinc-400 hover:text-red-500 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-white/5 text-center">
+        <p class="text-xs text-zinc-600">
+          © 2026 L. Moh. Banu Pebrianto · Kapten Nemo · nemospiritgeek.my.id — All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Theme toggle
+    (function() {
+      const toggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      const stored = localStorage.getItem('theme');
+
+      if (stored === 'light') { html.classList.remove('dark'); html.classList.add('light'); }
+      else { html.classList.add('dark'); }
+
+      toggle.addEventListener('click', function() {
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark'); html.classList.add('light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          html.classList.remove('light'); html.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    })();
+
+    // Mobile menu
+    (function() {
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('open');
+      });
+      document.querySelectorAll('.mobile-link').forEach(function(link) {
+        link.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
+      });
+    })();
+
+    // Scroll reveal + skill bars
+    (function() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Animate skill bars
+            const bars = entry.target.querySelectorAll('.skill-bar-fill');
+            bars.forEach(function(bar) {
+              bar.style.width = bar.getAttribute('data-width');
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // Active nav link on scroll
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', function() {
+        let current = '';
+        sections.forEach(function(section) {
+          const sectionTop = section.offsetTop - 120;
+          if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          navbar.querySelector('.glass').classList.add('shadow-2xl');
+        } else {
+          navbar.querySelector('.glass').classList.remove('shadow-2xl');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
