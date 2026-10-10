@@ -16,4 +16,4 @@ Sebuah *landing page* personal dan alternatif Linktree yang didesain secara khus
 **L. Moh. Banu Pebrianto (Kapten Nemo | @nemospiritgeek)**
 Seorang *Tech Blogger & Digital Creator* yang rutin menulis seputar teknologi, infrastruktur web, AI, dan gaya hidup digital sejak 2018.
 
-🌐 Kunjungi web saya di: [nemospiritgeek.web.id](https://nemospiritgeek.web.id)
+🌐 Kunjungi web saya di: [nemospiritgeek.my.id](https://nemospiritgeek.my.id)
