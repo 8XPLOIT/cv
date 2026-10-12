@@ -47,21 +47,25 @@
         }
 
         /* Card Frosted Glass */
-  .glass-container {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.03); /* Transparan sangat tipis */
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 2.5rem 2rem;
-      border-radius: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      max-width: 400px;
-      width: 90%;
-      margin: 0 auto; /* Tambahkan baris ini agar otomatis ke tengah */
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  }
+        .glass-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 2.5rem 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            
+            /* Penyesuaian agar tidak merapat ke tepi */
+            box-sizing: border-box; /* Memastikan padding tidak menambah ukuran lebar */
+            max-width: 400px;
+            width: 85%; /* Sedikit dikurangi dari 90% agar ada ruang kosong di kiri-kanan */
+            margin: 0 auto;
+            
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
 
         /* Tipografi */
         h2 {
