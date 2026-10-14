@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Logo & Title -->
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOyHc40uUxDor4NeQC-FQ-6domgoq1z-VbiCI583NgcEwtLyXQpG4aRguR4pIhBqIdKmNyKo0f8b8homnph51aUDytZixZMUh-eIFcu2EVvRCDoBRWCub0ZjNMfcXIqEQdlsglTHkq7CnkETJvDO9OcHYSqI1ZD2dJIH3DuRzO-jd8hV2sLFMDRcf0sa8/s1600/Image_6qi3ab6qi3ab6qi3.jpg?w=200&h=200&fit=crop&crop=face" alt="Kapten Nemo Avatar" width="120" height="120" style="border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);" />
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBH5K6KBgyyLf2OJaVLVKDnkNExWRiD1pY2uppDf-ZoFKk0mYTTTUtIubZT4XSgKkzKjV2xCg12dKsCg-g737jFKd5fneVgzYcB_bIe0Idd34zqheuIt26JkPP-psUZy2VXvdvTDp1GY7FAXYk1e6o9sVkT5eXB2DXF3RzcrDn4384HcWjJYpKlMw2YFw/s1600/Image_36pfn736pfn736pf.jpg" alt="Kapten Nemo Profile" width="600" height="415" style="border-radius: 15px; border: 4px solid #dc2626; box-shadow: 0 0 20px rgba(220, 38, 38, 0.4); object-fit: cover; object-position: center;" />
 
 # KAPTEN NEMO PERSONAL HUB
 
